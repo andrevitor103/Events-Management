@@ -1,4 +1,4 @@
-package com.andrevitor.event.core.domain;
+package com.andrevitor.event.application.core.domain;
 
 public enum Status {
     ACTIVE,

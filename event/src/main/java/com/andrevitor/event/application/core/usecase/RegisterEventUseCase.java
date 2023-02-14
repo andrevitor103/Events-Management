@@ -1,8 +1,9 @@
-package com.andrevitor.event.core.usecase;
+package com.andrevitor.event.application.core.usecase;
 
-import com.andrevitor.event.core.domain.Event;
-import com.andrevitor.event.core.domain.Status;
-import com.andrevitor.event.ports.out.RegisterEventOutputPort;
+import com.andrevitor.event.application.core.domain.Event;
+import com.andrevitor.event.application.core.domain.Status;
+import com.andrevitor.event.application.ports.out.RegisterEventOutputPort;
+import org.jetbrains.annotations.NotNull;
 
 public class RegisterEventUseCase {
     private final RegisterEventOutputPort registerEventOutputPort;
@@ -10,7 +11,7 @@ public class RegisterEventUseCase {
     public RegisterEventUseCase(RegisterEventOutputPort registerEventOutputPort) {
         this.registerEventOutputPort = registerEventOutputPort;
     }
-    public void register(Event event) {
+    public void register(@NotNull Event event) {
         event.setStatus(Status.ACTIVE);
         this.registerEventOutputPort.register(event);
     }

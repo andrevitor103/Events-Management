@@ -1,6 +1,4 @@
-package com.andrevitor.event.core.domain;
-
-import java.util.Date;
+package com.andrevitor.event.application.core.domain;
 
 public class Event {
 
@@ -8,7 +6,6 @@ public class Event {
     private final String name;
     private final String description;
     private final String date;
-
     private Status status;
 
     public Event(String id, String name, String description, String date) {

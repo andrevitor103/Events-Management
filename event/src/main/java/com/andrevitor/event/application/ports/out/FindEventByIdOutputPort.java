@@ -1,6 +1,6 @@
-package com.andrevitor.event.ports.out;
+package com.andrevitor.event.application.ports.out;
 
-import com.andrevitor.event.core.domain.Event;
+import com.andrevitor.event.application.core.domain.Event;
 
 import java.util.Optional;
 

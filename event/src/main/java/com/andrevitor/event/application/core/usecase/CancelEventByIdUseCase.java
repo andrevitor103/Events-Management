@@ -1,8 +1,8 @@
-package com.andrevitor.event.core.usecase;
+package com.andrevitor.event.application.core.usecase;
 
-import com.andrevitor.event.core.domain.Status;
-import com.andrevitor.event.ports.in.FindEventByIdInputPort;
-import com.andrevitor.event.ports.out.UpdateEventOutputPort;
+import com.andrevitor.event.application.core.domain.Status;
+import com.andrevitor.event.application.ports.in.FindEventByIdInputPort;
+import com.andrevitor.event.application.ports.out.UpdateEventOutputPort;
 
 public class CancelEventByIdUseCase {
     private final FindEventByIdInputPort findEventByIdInputPort;
