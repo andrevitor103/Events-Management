@@ -1,15 +1,12 @@
 package com.andrevitor.event.adapters.in.controller.mapper;
 
-import com.andrevitor.event.adapters.in.controller.reponse.EventResponse;
+import com.andrevitor.event.adapters.in.controller.request.EventRequest;
 import com.andrevitor.event.application.core.domain.Event;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-public class EventMapper {
-    public static EventResponse toEventResponse(Event event) {
-        return new EventResponse(
-                event.getName(),
-                event.getDescription(),
-                event.getDate(),
-                event.getStatus().toString()
-        );
-    }
+@Mapper(componentModel = "spring")
+public interface EventMapper {
+    @Mapping(target = "status", ignore = true)
+    Event toEvent(EventRequest eventRequest);
 }

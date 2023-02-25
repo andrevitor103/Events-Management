@@ -1,18 +1,25 @@
 package com.andrevitor.event.application.core.domain;
 
-public class Event {
+import java.time.LocalDate;
+import java.util.UUID;
 
-    private final String id;
+public class Event {
+    private String id;
+    private Status status;
     private final String name;
     private final String description;
-    private final String date;
-    private Status status;
+    private final LocalDate date;
+    private final Integer numberOfTickets;
 
-    public Event(String id, String name, String description, String date) {
-        this.id = id;
+    public Event(String name, String description, String date, Integer numberOfTickets) {
         this.name = name;
         this.description = description;
-        this.date = date;
+        this.date = LocalDate.parse(date);
+        this.numberOfTickets = numberOfTickets;
+    }
+    public void register() {
+        this.id = UUID.randomUUID().toString();
+        this.status = Status.ACTIVE;
     }
 
     public String getId() {
@@ -27,15 +34,14 @@ public class Event {
         return description;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
-
     public Status getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public Integer getNumberOfTickets() {
+        return numberOfTickets;
     }
 }
