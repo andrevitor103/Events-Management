@@ -10,7 +10,6 @@ import java.util.Date;
 @Data
 @Document(collection = "events")
 public class EventEntity {
-    @Id
     private String id;
     private String name;
     private String description;

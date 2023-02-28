@@ -11,15 +11,32 @@ public class Event {
     private final LocalDate date;
     private final Integer numberOfTickets;
 
-    public Event(String name, String description, String date, Integer numberOfTickets) {
+    public Event(String id, String name, String description, String date, Integer numberOfTickets) {
         this.name = name;
         this.description = description;
         this.date = LocalDate.parse(date);
         this.numberOfTickets = numberOfTickets;
+        this.addEventId(id);
+    }
+
+
+    private void addEventId(String id) {
+        if ( this.isNew() ) {
+            this.id = id;
+        }
+    }
+    private Boolean isNew() {
+        return this.id == null;
     }
     public void register() {
         this.id = UUID.randomUUID().toString();
         this.status = Status.ACTIVE;
+    }
+    public void cancel() {
+        if (this.status == Status.EXPIRED) {
+            return;
+        }
+        this.status = Status.CANCELLED;
     }
 
     public String getId() {
